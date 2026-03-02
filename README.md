@@ -84,7 +84,7 @@ campusops/
 
 ### 📘 Developer Guide
 
-**All team members must read:** [Developer Guide](docs/developer-guide.pdf)
+**All team members must read:** [Developer Guide](docs/Semester_Course_Project_Team_Instructions.pdf)
 
 This guide contains:
 - Setup instructions
