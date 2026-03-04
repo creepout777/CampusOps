@@ -20,7 +20,7 @@ CampusOps centralizes academic operations for educational institutions, providin
 
 ## Tech Stack
 
-**Backend:** Spring Boot 3.2, Java 17, PostgreSQL, Spring Security (JWT)  
+**Backend:** Spring Boot 4.0.3, Java 25, PostgreSQL, Spring Security (JWT)  
 **Frontend:** React 18, Axios, Tailwind CSS  
 **Integration:** OpenClaw, Telegram API, IMAP/SMTP
 
@@ -39,7 +39,7 @@ CampusOps centralizes academic operations for educational institutions, providin
 ### Installation
 ```bash
 # Clone repository
-git clone https://github.com/YOUR-ORG/campusops.git
+git clone https://github.com/creepout777/campusops.git
 cd campusops
 
 # Switch to develop branch
@@ -84,7 +84,7 @@ campusops/
 
 ### 📘 Developer Guide
 
-**All team members must read:** [Developer Guide](docs/developer-guide.pdf)
+**All team members must read:** [Developer Guide](docs/Semester_Course_Project_Team_Instructions.pdf)
 
 This guide contains:
 - Setup instructions

@@ -1,0 +1,61 @@
+name: Deploy
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1️⃣ Checkout code
+      - uses: actions/checkout@v4
+
+      # 2️⃣ Ensure deployment folder exists on VPS
+      - uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          password: ${{ secrets.VPS_PASSWORD }}
+          port: 22
+          script: mkdir -p ~/campusops
+
+      # 3️⃣ Copy code to VPS
+      - uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          password: ${{ secrets.VPS_PASSWORD }}
+          port: 22
+          source: "*"
+          target: "~/campusops"
+
+      # 4️⃣ Build backend JAR and frontend on VPS, then restart Docker
+      - uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          password: ${{ secrets.VPS_PASSWORD }}
+          port: 22
+          script: |
+            cd ~/campusops
+
+            # Build backend JAR
+            cd backend
+            chmod +x mvnw
+            ./mvnw clean package -DskipTests
+            cd ..
+
+            # Build frontend (if using npm)
+            cd frontend
+            npm install
+            npm run build
+            cd ..
+
+            # Bring down old containers
+            docker compose down
+
+            # Build all images
+            docker compose build
+
+            # Start containers in detached mode
+            docker compose up -d
