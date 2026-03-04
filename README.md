@@ -39,7 +39,7 @@ CampusOps centralizes academic operations for educational institutions, providin
 ### Installation
 ```bash
 # Clone repository
-git clone https://github.com/YOUR-ORG/campusops.git
+git clone https://github.com/creepout777/campusops.git
 cd campusops
 
 # Switch to develop branch
