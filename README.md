@@ -20,7 +20,7 @@ CampusOps centralizes academic operations for educational institutions, providin
 
 ## Tech Stack
 
-**Backend:** Spring Boot 3.2, Java 17, PostgreSQL, Spring Security (JWT)  
+**Backend:** Spring Boot 4.0.3, Java 25, PostgreSQL, Spring Security (JWT)  
 **Frontend:** React 18, Axios, Tailwind CSS  
 **Integration:** OpenClaw, Telegram API, IMAP/SMTP
 
